@@ -1,0 +1,7 @@
+pod "IntentionKit", :path => "../"
+
+target "Demo" do
+end
+
+target "DemoTests" do
+end
