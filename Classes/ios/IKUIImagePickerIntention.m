@@ -25,7 +25,14 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = NO;
-    picker.sourceType = self.sourceType;
+
+    // Make sure sourceType shouldn't crash
+    UIImagePickerControllerSourceType sourceType = self.sourceType;
+    if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
+        picker.sourceType = sourceType;
+    } else {
+        IKLog(@"sourceType %d not available", sourceType);
+    }
 
     [self.sourceViewController presentViewController:picker
                                             animated:YES
