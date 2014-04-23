@@ -1,0 +1,1 @@
+pod "IntentionKit", :path => "../../IntentionKit.podspec"

@@ -1,0 +1,14 @@
+PODS:
+  - IntentionKit (0.1.0)
+
+DEPENDENCIES:
+  - IntentionKit (from `../../IntentionKit.podspec`)
+
+EXTERNAL SOURCES:
+  IntentionKit:
+    :path: ../../IntentionKit.podspec
+
+SPEC CHECKSUMS:
+  IntentionKit: d83c5fe2c7fc3c8dbde7452ea13c0865eac85ff7
+
+COCOAPODS: 0.32.1

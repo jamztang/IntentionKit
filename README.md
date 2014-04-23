@@ -18,7 +18,8 @@ it simply add the following line to your Podfile:
 
 ## Author
 
-James Tang, jamz@jamztang.com
+James Tang, j@jamztang.com
+Simon Pang, hksimon@gmail.com
 
 ## License
 
