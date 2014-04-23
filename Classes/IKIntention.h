@@ -22,8 +22,3 @@
 
 @end
 
-
-@interface IKIntention : NSObject <IKIntention>
-
-@end
-

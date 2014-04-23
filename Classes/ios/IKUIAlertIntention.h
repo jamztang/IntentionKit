@@ -7,8 +7,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "IKIntention.h"
+#import "IKUIKitIntention.h"
 
 @interface IKUIAlertIntention : NSObject <IKIntention>
 
