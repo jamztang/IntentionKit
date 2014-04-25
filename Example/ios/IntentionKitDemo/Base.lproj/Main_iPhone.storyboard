@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FfF-Cf-2HE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Load Image View Controller - Load Image-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="IKLoadImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -16,68 +16,267 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="877-Bj-yMG">
-                                <rect key="frame" x="125" y="77" width="71" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Application Did Finish Launching" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDf-pO-FFf">
-                                <rect key="frame" x="34" y="106" width="252" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enjoy!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pch-kC-fNT">
-                                <rect key="frame" x="137" y="135" width="47" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kR-YI-Dpc">
-                                <rect key="frame" x="122" y="427" width="76" height="30"/>
+                                <rect key="frame" x="20" y="438" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Pick Image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startIntentionWithSender:" destination="Mrq-OJ-j2k" eventType="touchUpInside" id="cTo-ln-zX8"/>
+                                    <action selector="startPickingImageFromIntention:" destination="Mrq-OJ-j2k" eventType="touchUpInside" id="NnQ-Jj-SEw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nu-bK-rgW">
+                                <rect key="frame" x="178" y="438" width="128" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Load Async Image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadImageWithIntention:" destination="NEV-fA-Z8h" eventType="touchUpInside" id="7z9-Hj-N71"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3cV-cL-QBQ">
-                                <rect key="frame" x="40" y="173" width="240" height="240"/>
+                                <rect key="frame" x="14" y="223" width="292" height="207"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="llk-cf-sjO">
+                                <rect key="frame" x="150" y="326" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="292" translatesAutoresizingMaskIntoConstraints="NO" id="btG-fR-IeA">
+                                <rect key="frame" x="14" y="80" width="292" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">You don't need to have any code to fire up the image picker, what you need is to have a `IKUIImagePickerIntention` triggered by a button, and assign the image back to the image view.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IKAsyncImageIntention exposes a `isLoading` property, you can use a KeyValueObserver to kick start the loading indicator" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="292" translatesAutoresizingMaskIntoConstraints="NO" id="k8V-6z-nJa">
+                                <rect key="frame" x="20" y="471" width="292" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Load Image" id="1BQ-jA-egX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <customObject id="Mrq-OJ-j2k" customClass="IKUIImagePickerIntention">
+                    <connections>
+                        <action selector="setAsyncImageWithIntention:" destination="3cV-cL-QBQ" eventType="valueChanged" id="Tjk-bw-qnU"/>
+                        <outlet property="sourceViewController" destination="vXZ-lx-hvc" id="V7D-vN-LHZ"/>
+                    </connections>
+                </customObject>
+                <customObject id="NEV-fA-Z8h" customClass="IKUIAsyncImageIntention">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="urlString" value="http://cdn.macrumors.com/article-new/2013/06/2013_mac_pro.jpg"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="setAsyncImageWithIntention:" destination="3cV-cL-QBQ" eventType="valueChanged" id="cyp-P5-bdT"/>
+                    </connections>
+                </customObject>
+                <customObject id="p2v-io-hBU" customClass="IKKeyValueObserver">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="keyPath" value="isLoading"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="shouldAnimateWithNumberIntention:" destination="llk-cf-sjO" eventType="valueChanged" id="5oa-Ru-2Ni"/>
+                        <outlet property="target" destination="NEV-fA-Z8h" id="yFs-mW-Wed"/>
+                    </connections>
+                </customObject>
+                <customObject id="bSY-fV-fum" userLabel="- Alert Intention" customClass="IKUIAlertIntention"/>
+            </objects>
+            <point key="canvasLocation" x="1278" y="1035"/>
+        </scene>
+        <!--Table View Controller - IntentionKit-->
+        <scene sceneID="h33-OG-DDa">
+            <objects>
+                <tableViewController id="G08-7e-HN8" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PI8-0X-h0k">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="WHq-XN-xWc">
+                            <rect key="frame" x="0.0" y="64" width="320" height="220"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="292" translatesAutoresizingMaskIntoConstraints="NO" id="wiF-hz-hFI">
+                                    <rect key="frame" x="14" y="20" width="292" height="180"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <string key="text">IntentionKit helps you simplify code in your view controller. You will not need any code to display alert and subscribe to notifications. Go Main_iPhone.storyboard you'll see a `Notification Observer` for app launch notifcation, and a `Alert Intention` to display an alert.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
+                        <sections>
+                            <tableViewSection id="QHi-Jt-9He">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="DUq-Op-c0D" style="IBUITableViewCellStyleDefault" id="AvC-NB-KdU">
+                                        <rect key="frame" x="0.0" y="284" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AvC-NB-KdU" id="IfE-G8-1C5">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="KVO Example" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DUq-Op-c0D">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="4Nc-sh-Q64" kind="push" id="eU3-at-J03"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="SBV-p7-0e9" style="IBUITableViewCellStyleDefault" id="cUK-jf-M53">
+                                        <rect key="frame" x="0.0" y="328" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cUK-jf-M53" id="5Fc-XS-Ifp">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Load Image" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SBV-p7-0e9">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="vXZ-lx-hvc" kind="push" id="hgC-9m-PmK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="G08-7e-HN8" id="IC9-jh-fM0"/>
+                            <outlet property="delegate" destination="G08-7e-HN8" id="Z5J-5h-fiP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="IntentionKit" id="89V-CI-CWR"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tgq-jw-uIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="rY8-qb-Pqj" customClass="IKNotificationObserver">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="name" value="UIApplicationDidFinishLaunchingNotification"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="didNotifyIntention" destination="bSY-fV-fum" id="GZd-tr-xmC"/>
+                        <action selector="appDidLaunch:" destination="vXZ-lx-hvc" eventType="valueChanged" id="pJa-ev-Nkm"/>
+                        <action selector="showAlertWithIntention:" destination="Nd3-dt-Ut7" eventType="valueChanged" id="13M-a1-lxW"/>
                     </connections>
                 </customObject>
-                <customObject id="bSY-fV-fum" customClass="IKUIAlertIntention">
-                    <connections>
-                        <outlet property="cancelButtonLabel" destination="Pch-kC-fNT" id="04y-XI-Ojo"/>
-                        <outlet property="messageLabel" destination="NDf-pO-FFf" id="2sO-To-EAN"/>
-                        <outlet property="titleLabel" destination="877-Bj-yMG" id="0FW-f3-ILU"/>
-                    </connections>
+                <customObject id="Nd3-dt-Ut7" userLabel="- Alert Intention" customClass="IKUIAlertIntention">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Welcome"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="message" value="Our application just launch, and this alert doesn't require any code to trigger!"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="cancelButtonTitle" value="OK"/>
+                    </userDefinedRuntimeAttributes>
                 </customObject>
-                <customObject id="Mrq-OJ-j2k" customClass="IKUIImagePickerIntention">
+            </objects>
+            <point key="canvasLocation" x="816" y="805"/>
+        </scene>
+        <!--View Controller - KVO example-->
+        <scene sceneID="7xw-xr-Lrf">
+            <objects>
+                <viewController id="4Nc-sh-Q64" customClass="IKKVOViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9t7-9g-ruK"/>
+                        <viewControllerLayoutGuide type="bottom" id="kHE-bd-Xs9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0hd-9R-V51">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8U0-Tr-LRR">
+                                <rect key="frame" x="150" y="282" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RHL-aq-M4W">
+                                <rect key="frame" x="36" y="326" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchValueDidChange:" destination="4Nc-sh-Q64" eventType="valueChanged" id="LIb-1E-j3W"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UEO-qp-O4L">
+                                <rect key="frame" x="136" y="326" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchValueDidChange:" destination="4Nc-sh-Q64" eventType="valueChanged" id="ZWp-ZU-Qfz"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nhq-gp-25O">
+                                <rect key="frame" x="236" y="326" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchValueDidChange:" destination="4Nc-sh-Q64" eventType="valueChanged" id="ap8-xI-hOV"/>
+                                </connections>
+                            </switch>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oMc-h0-Bk9">
+                                <rect key="frame" x="36" y="391" width="249" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="ASf-hM-d1H">
+                                <rect key="frame" x="23" y="84" width="275" height="173"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Simplifying KVO: We have a self maintained object in Interface Builder to observe for changes. You don't need to write any -observerValueForKeyPath:object:context:</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="KVO example" id="VnE-Ea-T5m"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="total">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="imageDidPickIntention" destination="3cV-cL-QBQ" id="vdJ-t0-958"/>
-                        <outlet property="sourceViewController" destination="vXZ-lx-hvc" id="V7D-vN-LHZ"/>
+                        <outlet property="loadingIndicator" destination="8U0-Tr-LRR" id="5PA-9E-22K"/>
+                        <outlet property="progressView" destination="oMc-h0-Bk9" id="Mlj-Pf-v71"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ath-by-xhR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Is0-TA-vWG" customClass="IKKeyValueObserver">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="keyPath" value="counter"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="counterValueDidChange:" destination="4Nc-sh-Q64" eventType="valueChanged" id="g1i-XG-yJ1"/>
+                        <outlet property="target" destination="4Nc-sh-Q64" id="fDQ-8M-7M4"/>
                     </connections>
                 </customObject>
             </objects>
+            <point key="canvasLocation" x="1278" y="349"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vVG-0E-9zi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FfF-Cf-2HE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WO1-SN-uco">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="G08-7e-HN8" kind="relationship" relationship="rootViewController" id="Ksl-EJ-DJo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1vh-nX-gxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="290" y="805"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

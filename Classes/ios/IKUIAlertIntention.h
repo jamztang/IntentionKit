@@ -9,12 +9,23 @@
 #import <Foundation/Foundation.h>
 #import "IKUIKitIntention.h"
 
-@interface IKUIAlertIntention : NSObject <IKIntention>
+@protocol IKUIAlertIntention <NSObject>
+
+@property (assign, nonatomic, readonly) NSInteger buttonIndex;
+
+@end
+
+
+@interface IKUIAlertIntention : UIControl <IKUIAlertIntention>
+
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *message;
+@property (copy, nonatomic) NSString *cancelButtonTitle;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cancelButtonLabel;
 
-@property (weak, nonatomic) IBOutlet id <IKIntention> cancelIntention;
+- (IBAction)showAlertWithIntention:(id)sender;
 
 @end

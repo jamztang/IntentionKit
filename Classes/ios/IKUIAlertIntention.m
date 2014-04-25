@@ -10,15 +10,17 @@
 
 @interface IKUIAlertIntention () <UIAlertViewDelegate>
 
+@property (assign, nonatomic) NSInteger buttonIndex;
+
 @end
 
 @implementation IKUIAlertIntention
 
-- (void)startIntentionWithSender:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.titleLabel.text
-                                                    message:self.messageLabel.text
+- (IBAction)showAlertWithIntention:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.titleLabel.text ?: self.title
+                                                    message:self.messageLabel.text ?: self.message
                                                    delegate:self
-                                          cancelButtonTitle:self.cancelButtonLabel.text
+                                          cancelButtonTitle:self.cancelButtonLabel.text ?: self.cancelButtonTitle
                                           otherButtonTitles:nil];
 
     [alert show];
@@ -27,12 +29,8 @@
 #pragma mark UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == alertView.cancelButtonIndex) {
-        if ( ! self.cancelIntention) {
-            IKLog(@"cancelIntention is nil");
-        }
-        [self.cancelIntention startIntentionWithSender:self];
-    }
+    self.buttonIndex = buttonIndex;
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 @end

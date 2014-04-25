@@ -7,8 +7,10 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "IKUIKitIntention.h"
+#import "IntentionKit.h"
 
-@interface UIImageView (IKUIKitIntention) <IKUIKitIntentionWithImage>
+@interface UIImageView (IKUIKitIntention)
+
+- (IBAction)setAsyncImageWithIntention:(id <IKUIAsyncImageIntention>)intention;
 
 @end

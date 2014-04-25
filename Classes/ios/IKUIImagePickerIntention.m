@@ -11,12 +11,15 @@
 
 @interface IKUIImagePickerIntention () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (strong, nonatomic) UIImage *image;
+@property (copy, nonatomic) NSDictionary *info;
+
 @end
 
 
 @implementation IKUIImagePickerIntention
 
-- (void)startIntentionWithSender:(id)sender {
+- (void)startPickingImageFromIntention:(id)sender {
 
     if ( ! self.sourceViewController) {
         IKLog(@"sourceViewController is nil");
@@ -31,7 +34,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
         picker.sourceType = sourceType;
     } else {
-        IKLog(@"sourceType %d not available", sourceType);
+        IKLog(@"sourceType %ld not available", sourceType);
     }
 
     [self.sourceViewController presentViewController:picker
@@ -83,15 +86,10 @@
         image = info[UIImagePickerControllerEditedImage] ?: info[UIImagePickerControllerOriginalImage];
     }
 
-    if ( ! self.imageDidPickIntention) {
-        IKLog(@"imageDidPickIntention is nil");
-    }
-
-    if ([self.imageDidPickIntention respondsToSelector:@selector(startIntentionWithSender:image:)]) {
-        [self.imageDidPickIntention startIntentionWithSender:self image:image];
-    } else {
-        [self.imageDidPickIntention startIntentionWithSender:self];
-    }
+    self.image = image;
+    self.info  = info;
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
+    self.image = nil;    // release memory
 
     [self.sourceViewController dismissViewControllerAnimated:YES
                                                   completion:NULL];

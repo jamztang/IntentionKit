@@ -7,18 +7,10 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "IKIntention.h"
+#import "IKUIKitIntention.h"
 
+@interface UISwitch (IKUIKitIntention) <IKUIControlValueChangeIntention, IKNumberIntention>
 
-@protocol IKUIImageIntention <IKIntention>
-
-- (UIImage *)image;
-
-@end
-
-
-@protocol IKUIControlValueChangeIntention <IKIntention>
-
-- (id)value;
+- (IBAction)setOnWithNumberIntention:(id <IKNumberIntention>)intention;
 
 @end

@@ -10,7 +10,12 @@
 
 @interface IKKeyValueObserver ()
 
+@property (strong, nonatomic) id value;
+@property (copy, nonatomic) NSDictionary *change;
+
+// Additional Logic Gate
 @property (assign, nonatomic) BOOL isNil;
+
 
 @end
 
@@ -52,7 +57,9 @@
                        context:(void *)context {
     if ([keyPath isEqualToString:self.keyPath]) {
         [self valueDidChange:change];
-        [self.valueDidChangeIntention startIntentionWithSender:self];
+        self.value = [object valueForKey:self.keyPath];
+        self.change = change;
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
     }
 }
 
@@ -79,6 +86,14 @@
 
 - (void)valueDidChange:(NSDictionary *)change {
     self.isNil = change[NSKeyValueChangeNewKey] ? NO : YES;
+}
+
+- (NSNumber *)number {
+    NSNumber *number;
+    if ([self.value respondsToSelector:@selector(boolValue)]) {
+        number = @([self.value boolValue]);
+    }
+    return number;
 }
 
 @end

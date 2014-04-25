@@ -7,18 +7,10 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "IKIntention.h"
+#import "IKUIKitIntention.h"
 
+@interface UIActivityIndicatorView (IKUIKitIntention)
 
-@protocol IKUIImageIntention <IKIntention>
-
-- (UIImage *)image;
-
-@end
-
-
-@protocol IKUIControlValueChangeIntention <IKIntention>
-
-- (id)value;
+- (IBAction)shouldAnimateWithNumberIntention:(id <IKNumberIntention>)sender;
 
 @end

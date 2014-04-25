@@ -12,6 +12,7 @@
 
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
     #import "IKUIKitIntention.h"
+    #import "IKUIAsyncImageIntention.h"
 #elif TARGET_OS_MAC
 #else
 // Unsupported platform

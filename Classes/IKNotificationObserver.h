@@ -7,14 +7,11 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "IKUIKitIntention.h"
 
-@protocol IKIntention;
-
-@interface IKNotificationObserver : NSObject
+@interface IKNotificationObserver : UIControl <IKUIControlValueChangeIntention>
 
 @property (copy, nonatomic) NSString *name;
 @property (weak, nonatomic) IBOutlet id object;
-
-@property (weak, nonatomic) IBOutlet id <IKIntention> didNotifyIntention;
 
 @end

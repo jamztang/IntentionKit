@@ -18,7 +18,40 @@
 
 @protocol IKIntention <NSObject>
 
-- (IBAction)startIntentionWithSender:(id)sender;
+@end
+
+@protocol IKStringIntention <IKIntention>
+
+- (NSString *)string;
 
 @end
 
+@protocol IKNumberIntention <IKIntention>
+
+- (NSNumber *)number;
+
+@end
+
+@protocol IKURLResponseIntention <IKIntention>
+
+- (NSURLResponse *)response;
+
+@end
+
+@protocol IKErrorIntention <IKIntention>
+
+- (NSError *)error;
+
+@end
+
+@protocol IKDataIntention <IKIntention>
+
+- (NSData *)data;
+
+@end
+
+@protocol IKAsynchronousIntention <IKIntention>
+
+- (BOOL)isLoading;
+
+@end

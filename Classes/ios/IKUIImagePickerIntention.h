@@ -9,12 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "IKUIKitIntention.h"
 
-@interface IKUIImagePickerIntention : NSObject <IKIntention>
+
+@protocol IKUIImagePickerIntention <IKUIImageIntention>
+
+- (NSDictionary *)info;
+
+@end
+
+
+@interface IKUIImagePickerIntention : UIControl <IKUIImagePickerIntention>
 
 @property (weak, nonatomic) IBOutlet UIViewController *sourceViewController;
 @property (assign, nonatomic) BOOL allowEditing;
 @property (assign, nonatomic) UIImagePickerControllerSourceType sourceType;
 
-@property (weak, nonatomic) IBOutlet id <IKUIKitIntentionWithImage> imageDidPickIntention;
+- (IBAction)startPickingImageFromIntention:(id)sender;
 
 @end

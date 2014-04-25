@@ -27,10 +27,11 @@
 }
 
 - (void)didReceiveNotifcation:(NSNotification *)notification {
-    if ( ! self.didNotifyIntention) {
-        IKLog(@"didNotifyIntention is nil");
-    }
-    [self.didNotifyIntention startIntentionWithSender:self];
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
+}
+
+- (id)value {
+    return self.object;
 }
 
 @end

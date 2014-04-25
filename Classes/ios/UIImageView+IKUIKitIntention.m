@@ -10,12 +10,8 @@
 
 @implementation UIImageView (IKUIKitIntention)
 
-- (void)startIntentionWithSender:(id)sender {
-    // Nothing
-}
-
-- (void)startIntentionWithSender:(id)sender image:(UIImage *)image {
-    self.image = image;
+- (void)setAsyncImageWithIntention:(id <IKUIAsyncImageIntention>)intention {
+    self.image = intention.image;
 }
 
 @end
