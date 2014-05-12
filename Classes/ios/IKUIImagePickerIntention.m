@@ -74,24 +74,17 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
     NSURL *imageURL = [info valueForKey:UIImagePickerControllerReferenceURL];
-    UIImage *image;
+    UIImage *image, *thumbnailImage;
     if (imageURL) {
-        image = [self thumbnailImageWithReferenceURL:imageURL];
+        thumbnailImage = [self thumbnailImageWithReferenceURL:imageURL];
     }
 
     if ( ! image) {
         image = info[UIImagePickerControllerEditedImage] ?: info[UIImagePickerControllerOriginalImage];
     }
 
-    if ( ! self.imageDidPickIntention) {
-        IKLog(@"imageDidPickIntention is nil");
-    }
-
-    if ([self.imageDidPickIntention respondsToSelector:@selector(startIntentionWithSender:image:)]) {
-        [self.imageDidPickIntention startIntentionWithSender:self image:image];
-    } else {
-        [self.imageDidPickIntention startIntentionWithSender:self];
-    }
+    self.originalImageView.image  = image;
+    self.thumbnailImageView.image = thumbnailImage;
 
     [self.sourceViewController dismissViewControllerAnimated:YES
                                                   completion:NULL];

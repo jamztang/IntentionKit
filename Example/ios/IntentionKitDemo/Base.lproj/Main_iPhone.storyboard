@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="877-Bj-yMG">
@@ -47,13 +47,47 @@
                                     <action selector="startIntentionWithSender:" destination="Mrq-OJ-j2k" eventType="touchUpInside" id="cTo-ln-zX8"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3cV-cL-QBQ">
-                                <rect key="frame" x="40" y="173" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZ9-ef-Y0z">
+                                <rect key="frame" x="0.0" y="164" width="640" height="261"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3cV-cL-QBQ">
+                                        <rect key="frame" x="41" y="11" width="240" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="240" id="lBL-c5-kSb"/>
+                                            <constraint firstAttribute="width" constant="240" id="ybr-cx-sNo"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7gq-B6-1qe">
+                                        <rect key="frame" x="289" y="11" width="240" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="ksY-sG-9k5"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3cV-cL-QBQ" firstAttribute="leading" secondItem="YZ9-ef-Y0z" secondAttribute="leading" constant="41" id="Ifr-Ul-ux4"/>
+                                    <constraint firstItem="3cV-cL-QBQ" firstAttribute="top" secondItem="7gq-B6-1qe" secondAttribute="top" id="QS5-a6-WiS"/>
+                                    <constraint firstItem="3cV-cL-QBQ" firstAttribute="top" secondItem="YZ9-ef-Y0z" secondAttribute="top" constant="11" id="YKK-1u-gnh"/>
+                                    <constraint firstAttribute="bottom" secondItem="3cV-cL-QBQ" secondAttribute="bottom" constant="10" id="Ykh-HG-pdI"/>
+                                    <constraint firstAttribute="trailing" secondItem="7gq-B6-1qe" secondAttribute="trailing" constant="111" id="aUl-Az-Zlk"/>
+                                    <constraint firstAttribute="height" constant="261" id="eho-Lv-NOi"/>
+                                    <constraint firstItem="7gq-B6-1qe" firstAttribute="bottom" secondItem="3cV-cL-QBQ" secondAttribute="bottom" id="fZg-xS-9oe"/>
+                                    <constraint firstItem="7gq-B6-1qe" firstAttribute="leading" secondItem="3cV-cL-QBQ" secondAttribute="trailing" constant="8" symbolic="YES" id="yl7-LH-5lz"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YZ9-ef-Y0z" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="144" id="Y4t-Qg-aUB"/>
+                            <constraint firstItem="YZ9-ef-Y0z" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="hdF-8k-bRg"/>
+                            <constraint firstAttribute="trailing" secondItem="YZ9-ef-Y0z" secondAttribute="trailing" id="s99-9d-xvn"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="640" height="568"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <customObject id="rY8-qb-Pqj" customClass="IKNotificationObserver">
@@ -73,8 +107,9 @@
                 </customObject>
                 <customObject id="Mrq-OJ-j2k" customClass="IKUIImagePickerIntention">
                     <connections>
-                        <outlet property="imageDidPickIntention" destination="3cV-cL-QBQ" id="vdJ-t0-958"/>
+                        <outlet property="originalImageView" destination="3cV-cL-QBQ" id="eUO-Sy-cnx"/>
                         <outlet property="sourceViewController" destination="vXZ-lx-hvc" id="V7D-vN-LHZ"/>
+                        <outlet property="thumbnailImageView" destination="7gq-B6-1qe" id="ubq-GM-wkp"/>
                     </connections>
                 </customObject>
             </objects>

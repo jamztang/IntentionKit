@@ -15,6 +15,8 @@
 @property (assign, nonatomic) BOOL allowEditing;
 @property (assign, nonatomic) UIImagePickerControllerSourceType sourceType;
 
-@property (weak, nonatomic) IBOutlet id <IKUIKitIntentionWithImage> imageDidPickIntention;
+// UI Elements
+@property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *originalImageView;
 
 @end
